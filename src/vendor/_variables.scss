@@ -1,0 +1,80 @@
+@mixin lgdesktop {
+  @media screen and (max-width: $lgdesktop) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media screen and (max-width: $mobile) {
+    @content;
+  }
+}
+
+@mixin adaptive-font($maxSize, $minSize) {
+  $diffSize: $maxSize - $minSize;
+  $addSize: $diffSize * 1.6;
+
+  @media (min-width: $lgdesktop) {
+    font-size: #{$maxSize + px};
+  }
+  @media (max-width: $lgdesktop) {
+    font-size: calc(
+      #{$minSize + px} + #{$diffSize} * 3.45 * ((100vw - 1024px) / 1440)
+    );
+  }
+
+  @media (max-width: $tablet) {
+    font-size: #{$maxSize + px};
+  }
+}
+
+@mixin adaptive-lh($maxSize, $minSize) {
+  $diffSize: $maxSize - $minSize;
+  $addSize: $diffSize * 1.6;
+
+  @media (min-width: $lgdesktop) {
+    line-height: #{$maxSize + px};
+  }
+  @media (max-width: $lgdesktop) {
+    line-height: calc(
+      #{$minSize + px} + #{$diffSize} * 3.45 * ((100vw - 1024px) / 1440)
+    );
+  }
+}
+
+@mixin padding-side {
+  @media screen and (min-width: 1441px) {
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+
+  @media (max-width: 1440px) {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@mixin section-title {
+  @include adaptive-font(45, 38);
+  @include adaptive-lh(70, 60);
+  font-weight: 700;
+
+  @include mobile {
+    text-align: center;
+    width: 80%;
+    font-size: 28px;
+    line-height: 34px;
+  }
+}

@@ -1,0 +1,123 @@
+.footer {
+  width: 100%;
+  padding: 50px 0 100px 0;
+  box-sizing: border-box;
+  background-color: #f9fcfd;
+
+  &__wrapper {
+    margin: 0 auto;
+    max-width: 1440px;
+    box-sizing: border-box;
+    @include padding-side;
+    @include flex-column;
+    row-gap: 50px;
+  }
+
+  &__title {
+    max-width: 62%;
+    text-align: center;
+    @include adaptive-font(40, 34);
+    @include adaptive-lh(48, 42);
+    font-weight: 700;
+
+    @include tablet {
+      font-size: 28px;
+      line-height: 34px;
+    }
+  }
+
+  &__contact {
+    display: grid;
+    grid-template-columns: 371px min-content 1fr;
+    align-items: center;
+    grid-template-areas: "call contact title"
+    "call contact form";
+
+    @include tablet {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-areas: "title"
+      "call"
+      "contact"
+      "form";
+    }
+
+    &-phone {
+      grid-area: call;
+      height: 100%;
+      @include flex-column;
+      justify-content: center;
+      row-gap: 20px;
+      padding-right: 20px;
+      border-right: 1px dashed #31bef4;
+
+      @include tablet {
+        padding-bottom: 25px;
+        border-right: none;
+        border-bottom: 1px dashed #31bef4;
+      }
+    }
+
+    &-text {
+      grid-area: contact;
+      text-align: center;
+      @include adaptive-font(22, 18);
+      @include adaptive-lh(27, 21);
+      font-weight: 700;
+
+      @include tablet {
+        padding-top: 30px;
+        font-size: 18px;
+        line-height: 22px;
+      }
+
+      &_size_small {
+        @include adaptive-font(16, 12);
+        @include adaptive-lh(19, 15);
+      }
+
+      &_padding_left {
+        padding-left: 25px;
+      }
+    }
+
+    &-link {
+      display: flex;
+      column-gap: 11px;
+      align-items: center;
+      text-align: center;
+      @include adaptive-font(24, 18);
+      @include adaptive-lh(28, 24);
+      font-weight: 700;
+      transition: all .2s linear;
+
+      &:hover {
+        color: #31bef4;
+
+        span {
+          background-color: #31bef4;
+          color: #fff;
+
+          svg {
+            fill: #fff;
+          }
+        }
+      }
+
+      span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: #fff;
+        box-shadow: 0px 3px 15px rgba(33, 45, 85, 0.1);
+        font-size: 22px;
+        text-align: left;
+        transition: all .2s linear;
+      }
+    }
+  }
+}

@@ -1,0 +1,121 @@
+@import "./vendor/normalize.css";
+@import "./vendor/_breakpoints.scss";
+@import "./vendor/_variables.scss";
+@import "./vendor/fonts/font.css";
+@import "./blocks/header.scss";
+@import "./blocks/banner.scss";
+@import "./blocks/benefits.scss";
+@import "./blocks/infrastructure.scss";
+@import "./blocks/specification.scss";
+@import "./blocks/footer.scss";
+@import "./blocks/form.scss";
+
+body {
+  background: #fff;
+  width: 100%;
+  padding: 0;
+  border: none;
+  font-family: "Gilroy", Arial, sans-serif;
+  color: #212d55;
+  @include flex-column;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+ul,
+ol {
+  list-style-type: none;
+}
+
+a {
+  color: #212d55;
+  text-decoration: none;
+}
+
+.first-screen {
+  width: 100%;
+  max-width: 1440px;
+  @include flex-column;
+  background-image: url('./assets/banner.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.content {
+  width: 100%;
+  @include flex-column;
+}
+
+.placemark_layout_container { 
+  display: none;
+  position: relative;
+  font-family: Georgia;
+  font-size: 40px;
+  text-align: center;
+  font-weight: bold;
+  width: 46px;
+  height: 46px;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0px 3px 15px rgba(33, 45, 85, 0.15);
+  transform: translate(-50%, -50%);
+
+  &_active {
+    display: block;
+  }
+}
+
+.icon_layout {
+  background-color: #31BEF4;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 24px;
+  height: 24px;
+  color: #225D9C;
+  z-index: 100;
+  transition: all .2s linear;
+
+  &_shop {
+    -webkit-mask-image: url('./assets/shop.svg');
+    mask-image: url('./assets/shop.svg');  
+  }
+
+  &_point {
+    -webkit-mask-image: url('./assets/point.svg');
+    mask-image: url('./assets/point.svg');
+    width: 20px;
+    height: 28px;
+  }
+
+  &_gas {
+    -webkit-mask-image: url('./assets/gas-station.svg');
+    mask-image: url('./assets/gas-station.svg');
+  }
+
+  &_pharmacy {
+    -webkit-mask-image: url('./assets/pharmacy.svg');
+    mask-image: url('./assets/pharmacy.svg');
+  }
+
+  &_kinder {
+    -webkit-mask-image: url('./assets/toys.svg');
+    mask-image: url('./assets/toys.svg');
+  }
+}

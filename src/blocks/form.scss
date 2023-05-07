@@ -1,0 +1,160 @@
+.form {
+  padding-top: 25px;
+  padding-left: 50px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: "name phone" "email submit" "rules rules";
+  row-gap: 30px;
+  column-gap: 58px;
+
+  @include mobile {
+    @include flex-column;
+    padding-left: 0;
+  }
+
+  &__title {
+    grid-area: title;
+    width: fit-content;
+    justify-self: center;
+    grid-area: title;
+    position: relative;
+    padding-left: 0;
+    text-align: center;
+    @include adaptive-font(16, 12);
+    @include adaptive-lh(19, 15);
+    font-weight: 500;
+    color: #31bef4;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: -5px;
+      top: 40%;
+      transform: translate(-50%, -50%);
+      width: 6px;
+      height: 6px;
+      background-color: #31bef4;
+      border-radius: 50%;
+    }
+  }
+
+  #name {
+    grid-area: name;
+  }
+
+  #phone {
+    grid-area: phone;
+  }
+  #email {
+    grid-area: email;
+  }
+  #rules {
+    grid-area: rules;
+    justify-self: center;
+  }
+
+  &__input-wrapper {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+
+    @include mobile {
+      width: 100%;
+    }
+  }
+
+  &__input {
+    border: none;
+    outline: none;
+    padding: 25px;
+    background: #ffffff;
+    box-shadow: 0px 5px 19px rgba(33, 45, 85, 0.06);
+    border-radius: 10px;
+    @include adaptive-font(18, 14);
+    @include adaptive-lh(21, 18);
+
+    &::placeholder {
+      color: #a8abb7;
+    }
+
+    @include mobile {
+      width: 100%;
+    }
+  }
+
+  &__input-label {
+    cursor: pointer;
+    position: relative;
+    @include adaptive-font(14, 12);
+    @include adaptive-lh(16, 14);
+    font-weight: 250;
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+
+    @include mobile {
+      display: inline;
+      text-align: center;
+      padding-left: 30px;
+    }
+
+    input {
+      width: 100%;
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+    }
+
+    .checkmark {
+      position: absolute;
+      top: 0;
+      left: -30px;
+      transform: translate(0, -20%);
+      margin-right: 5px;
+      width: 20px;
+      height: 20px;
+      background: #f9fcfd;
+      box-shadow: 0px 5px 15px rgba(33, 45, 85, 0.2);
+      border-radius: 5px;
+
+      @include mobile {
+        left: 0px;
+      }
+    }
+
+    input:checked + .checkmark {
+      display: block;
+      background-image: url('./assets/check.svg');
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    input:disabled + .checkmark {
+      background: #fff;
+    }
+
+    span {
+      color: #31bef4;
+    }
+  }
+
+  &__submit-button {
+    cursor: pointer;
+    border: none;
+    background-color: #31bef4;
+    box-shadow: 0px 6px 0px #2cabdc;
+    border-radius: 10px;
+    padding: 15px 27px;
+    color: #ffffff;
+    @include adaptive-font(22, 18);
+    @include adaptive-lh(26, 22);
+    font-weight: 600;
+    transition: box-shadow 0.2s linear;
+
+    &:hover {
+      box-shadow: 0px 4px 20px #0b91c5;
+    }
+  }
+}

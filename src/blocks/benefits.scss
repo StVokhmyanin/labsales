@@ -1,0 +1,123 @@
+.swiper_benefits {
+  width: 100%;
+  max-width: 1140px;
+  height: 378px;
+  padding: 20px 5px;
+  box-sizing: border-box;
+  @include flex-column;
+  align-items: flex-start;
+  row-gap: 30px;
+
+  @media screen and (max-width: 1279px) {
+    max-width: 1000px;
+  }
+
+  @include tablet {
+    padding: 30px 20px;
+  }
+
+  .swiper-slide {
+    height: calc((100% - 30px) / 2);
+    width: 100%;
+    max-width: 262px;
+    box-sizing: border-box;
+    padding: 35px 25px 35px 15px;
+    background: #f9fcfd;
+    box-shadow: 0px 5px 15px rgba(33, 45, 85, 0.2);
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    grid-template-areas:
+      "icon title"
+      "icon description";
+    gap: 18px;
+    @include adaptive-font(22, 18);
+
+    @include mobile {
+      max-width: none;
+    }
+
+    span {
+      font-weight: 600;
+    }
+  }
+}
+
+.swiper-wrapper_benefits {
+  box-sizing: border-box;
+  width: 100%;
+  height: 95%;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.swiper-pagination_benefits {
+  display: none;
+
+  @media screen and (max-width: 1279px) {
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+  }
+
+  .swiper-pagination-bullet {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid #31bef4;
+    background: #fff;
+    opacity: 1;
+
+    &-active {
+      position: relative;
+      width: 19px;
+      height: 19px;
+      -webkit-box-shadow: 0 3px 10px #31bef4;
+      box-shadow: 0 3px 10px #31bef4;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        width: 9px;
+        height: 9px;
+        background: #31bef4;
+        border-radius: 50%;
+        z-index: 10;
+      }
+    }
+
+    
+  }
+}
+
+.benefits__item-icon {
+  position: relative;
+  width: 80px;
+  height: 69px;
+  grid-area: icon;
+  background: #ffffff;
+  box-shadow: 0px 5px 19px rgba(33, 45, 85, 0.06);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  object-fit: scale-down;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    background: linear-gradient(0.75turn, #e0e3e9, #f8fbfd);
+    width: 10px;
+    height: 14px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+  }
+}

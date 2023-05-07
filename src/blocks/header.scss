@@ -1,0 +1,226 @@
+.header {
+  max-width: 1440px;
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  justify-items: stretch;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 16px 0;
+  @include padding-side;
+  align-items: center;
+  column-gap: 6%;
+  background-image: url("./assets/banner.jpg");
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.75),
+    rgba(255, 255, 255, 0.75)
+  );
+
+  @include tablet {
+    padding: 23px 31px 30px 15px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: min-content;
+    align-content: flex-start;
+    row-gap: 30px;
+
+
+    &_active {
+      height: 100vh;
+      background: none;
+      background-color: #212d55;
+      grid-template-areas:
+      "logo menuButton"
+      "links links";
+    }
+  }
+
+  &__logo {
+
+    @include mobile {
+      width: 148px;
+    }
+  }
+
+  &__button {
+    cursor: pointer;
+    display: none;
+    position: absolute;
+    top: 59px;
+    right: 31px;
+    border: none;
+    background: none;
+    font-size: 18px;
+
+    @include tablet {
+      display: flex;
+      align-items: center;
+      column-gap: 10px;
+    }
+
+    span {
+      position: relative;
+      display: block;
+      width: 30px;
+      height: 2px;
+      background-color: #212d55;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        top: -7px;
+        display: block;
+        width: 30px;
+        height: 2px;
+        background-color: #212d55;
+        transition: all .2s linear;
+      }
+
+      &::after {
+        top: 7px;
+      }
+    }
+
+    &_active {
+      color: transparent;
+
+      span {
+        background: #fff;
+        width: 31px;
+        height: 31px;
+        border-radius: 50%;
+        transform: translateY(-30%);
+      }
+
+      span::before,
+      span::after {
+        top: 15px;
+        left: 5px;
+        width: 20px;
+        height: 1px;
+        background-color: #31BEF4;
+      }
+
+      span::before {
+        transform: translateY(-50%) rotate(45deg);
+      }
+
+      span::after {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+
+  &__nav {
+    width: 100%;
+    display: flex;
+    column-gap: 100px;
+    align-items: center;
+
+    @include tablet {
+      display: none;
+      flex-direction: column;
+      align-items: flex-end;
+      row-gap: 30px;
+      background-color: #212d55;
+      grid-area: links;
+
+      &_active {
+        display: flex;
+      }
+    }
+
+    &_sub {
+      box-sizing: border-box;
+      border-top: 1px solid #31bef4;
+      border-bottom: 1px solid #31bef4;
+      padding: 30px 0;
+
+      @include tablet {
+        display: none;
+      }
+    }
+  }
+
+  &__nav-list {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    column-gap: 15px;
+
+    @include tablet {
+      align-items: flex-end;
+      flex-direction: column;
+      row-gap: 30px;
+    }
+
+    &_sublist {
+      margin: 0 auto;
+      box-sizing: border-box;
+      max-width: 1440px;
+      @include padding-side;
+      column-gap: 35px;
+    }
+  }
+
+  &__nav-item {
+    @include tablet {
+    }
+
+    &_active a {
+      color: #31bef4;
+    }
+  }
+
+  &__nav-link {
+    font-family: "Raleway";
+    font-weight: 600;
+    @include adaptive-font(18, 14);
+    transition: all 0.2s linear;
+
+    @include tablet {
+      color: #fff;
+    }
+
+    &_phone {
+      font-family: "Gilroy";
+      @include adaptive-font(20, 16);
+      @include adaptive_lh(24, 20);
+    }
+
+    &:hover {
+      color: #31bef4;
+    }
+  }
+
+  &__contact {
+    width: min-content;
+    @include flex-column;
+    row-gap: 7px;
+
+    @include tablet {
+      grid-area: contact;
+      align-items: flex-end;
+    }
+  }
+
+  &__contact-button {
+    font-family: "Raleway";
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    @include adaptive-font(18, 14);
+    @include adaptive_lh(21, 18);
+    font-weight: 600;
+    text-decoration: underline;
+    transition: all 0.2s linear;
+
+    &:hover {
+      color: #31bef4;
+    }
+
+    @include tablet {
+      color: #fff;
+    }
+  }
+}
